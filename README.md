@@ -15,8 +15,11 @@ Producing a message :
 ./listener/produce
 ```
 
+# 2 - JMS listener picks and stores message in db
+
+The JMS messages and their headers are stored in MariaDB.
+
 # TODO
-2 - JMS listener picks and stores message in db
 3 - JMS listener picks message, calls WebService, and stores data in db
 4 - EJB produces message
 5 - Remote client calls EJB message producer

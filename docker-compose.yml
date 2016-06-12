@@ -1,8 +1,13 @@
+database:
+  image: mariadb
+  environment:
+    - "MYSQL_ROOT_PASSWORD=root"
+    - "MYSQL_DATABASE=testjee"
+
 queuer:
   image: webcenter/activemq
   ports:
     - "8161:8161"
-
 
 listener:
   build: ./listener
@@ -10,3 +15,4 @@ listener:
     - "10080:8080"
   links:
     - queuer
+    - database
