@@ -9,6 +9,11 @@ queuer:
   ports:
     - "8161:8161"
 
+server:
+  build: ./server
+  ports:
+    - "9080:8080"
+
 listener:
   build: ./listener
   ports:
@@ -16,3 +21,4 @@ listener:
   links:
     - queuer
     - database
+    - server
