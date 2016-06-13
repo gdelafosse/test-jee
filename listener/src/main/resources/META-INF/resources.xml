@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tomee>
+
+    <Resource id="MariaDBDatasource" type="javax.sql.DataSource">
+        JdbcUrl jdbc:mysql://database:3306/testjee
+        JdbcDriver org.mariadb.jdbc.Driver
+        UserName root
+        Password root
+        maxWaitTime = 60000
+    </Resource>
+
+    <Resource id="ActiveMQ" type="ActiveMQResourceAdapter">
+        ServerUrl = tcp://queuer:61616
+        userName = admin
+        password = admin
+    </Resource>
+
+    <Resource id="ActiveMQConnectionFactory" type="javax.jms.ConnectionFactory">
+        ResourceAdapter = ActiveMQ
+    </Resource>
+
+    <Container id="ActiveMQMdbContainer" ctype="MESSAGE">
+        ResourceAdapter = ActiveMQ
+    </Container>
+
+</tomee>

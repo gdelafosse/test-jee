@@ -1,0 +1,13 @@
+<persistence xmlns="http://java.sun.com/xml/ns/persistence" version="1.0">
+
+    <persistence-unit name="test-jee-listener">
+        <jta-data-source>MariaDBDatasource</jta-data-source>
+        <non-jta-data-source>MariaDBDatasource</non-jta-data-source>
+
+        <class>test.jee.listener.MessageEntity</class>
+
+        <properties>
+            <property name="openjpa.jdbc.SynchronizeMappings" value="buildSchema"/>
+        </properties>
+    </persistence-unit>
+</persistence>

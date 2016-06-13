@@ -1,28 +1,23 @@
 package test.jee.listener;
 
-import javax.annotation.Resource;
+import javax.ejb.EJB;
 import javax.ejb.MessageDriven;
-import javax.jms.ConnectionFactory;
 import javax.jms.JMSException;
 import javax.jms.Message;
 import javax.jms.MessageListener;
-import javax.jms.Queue;
 
-@MessageDriven
+@MessageDriven(name = "TESTJEE")
 public class MessageListenerBean implements MessageListener
 {
-    @Resource
-    private ConnectionFactory connectionFactory;
-
-    @Resource(name = "FooQueue")
-    private Queue answerQueue;
+    @EJB
+    private MessageStoreBean messageStore;
 
     @Override
     public void onMessage(final Message message)
     {
         try
         {
-            System.out.println(String.format("%s received message %s", this, message.getJMSMessageID()));
+            messageStore.store(message);
         }
         catch (JMSException e)
         {
