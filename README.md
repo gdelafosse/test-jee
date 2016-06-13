@@ -19,9 +19,10 @@ Producing a message :
 
 The JMS messages and their headers are stored in MariaDB.
 
+# 3 - JMS listener picks message, calls WebService, and stores data in db
+
 # TODO
-3 - JMS listener picks message, calls WebService, and stores data in db
-4 - EJB produces message
-5 - Remote client calls EJB message producer
-6 - WebService calls EJB message producer
-7 - REST service calls EJB message producer
+4. EJB produces message
+5. Remote client calls EJB message producer
+6. WebService calls EJB message producer
+7. REST service calls EJB message producer
