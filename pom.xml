@@ -32,6 +32,7 @@
 
     <modules>
         <module>listener</module>
+        <module>producer</module>
         <module>server</module>
     </modules>
     <dependencies>

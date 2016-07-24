@@ -9,6 +9,11 @@ queuer:
   ports:
     - "8161:8161"
 
+producer:
+  build: ./producer
+  volumes:
+    - "./messages:/messages"
+
 server:
   build: ./server
   ports:

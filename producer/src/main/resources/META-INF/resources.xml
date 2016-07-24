@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tomee>
+
+    <Resource id="ActiveMQ" type="ActiveMQResourceAdapter">
+        ServerUrl = tcp://queuer:61616
+        userName = admin
+        password = admin
+    </Resource>
+
+    <Resource id="ActiveMQConnectionFactory" type="javax.jms.ConnectionFactory">
+        ResourceAdapter = ActiveMQ
+    </Resource>
+
+    <Container id="ActiveMQMdbContainer" ctype="MESSAGE">
+        ResourceAdapter = ActiveMQ
+    </Container>
+
+    <Resource id="TESTJEE" type="javax.jms.Queue">
+        destination = TESTJEE
+    </Resource>
+
+
+</tomee>
