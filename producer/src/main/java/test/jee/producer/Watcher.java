@@ -21,7 +21,7 @@ public class Watcher extends FileAlterationListenerAdaptor
 {
     private final static Path messages = Paths.get("/messages");
 
-    private final static Path errors = Paths.get(messages.toString(), ".errors");
+    private final static Path errors = messages.resolve(".errors");
 
     @EJB
     private Producer producer;
@@ -75,7 +75,7 @@ public class Watcher extends FileAlterationListenerAdaptor
     {
         try
         {
-            Files.move(file.toPath(), errors);
+            Files.move( file.toPath(), errors.resolve(file.getName()));
             System.out.println(String.format("File %s moved to error", file.toString()));
         }
         catch (IOException e1)
