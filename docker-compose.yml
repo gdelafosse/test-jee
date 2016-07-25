@@ -13,6 +13,8 @@ producer:
   build: ./producer
   volumes:
     - "./messages:/messages"
+  links:
+    - queuer
 
 server:
   build: ./server
